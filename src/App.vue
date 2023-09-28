@@ -21,5 +21,5 @@ export default {
 
 
 <style lang="scss">
-@use './assets/app'
+@use './assets/scss/app.scss'
 </style>
