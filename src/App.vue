@@ -20,7 +20,7 @@ export default {
 
       //console.log(resultMovie)
       // mi restituisce una stringa vuota nel mio input
-      this.searchFilter = '';
+      this.state.research = '';
     },
   },
 }
@@ -31,7 +31,7 @@ export default {
 
 <template>
   <div class="container input-group mb-3">
-    <input type="search" class="form-control" placeholder="Research" aria-label="Research"
+    <input @keyup.enter="searchFilter()" type="search" class="form-control" placeholder="Research" aria-label="Research"
       aria-describedby="button-addon2" v-model="state.research">
     <button class="btn btn-outline-secondary" @click="searchFilter()" type="button" id="button-addon2">Cerca</button>
   </div>
