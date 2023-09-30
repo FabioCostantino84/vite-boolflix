@@ -13,7 +13,7 @@ export default {
   //metodo per filtrare i contenuti
   methods: {
     searchFilter() {
-      const urlMovie = this.state.base_url + this.state.research;
+      const urlMovie = this.state.movie_base_url + this.state.research;
 
       // a questa variabile gli assegno la funzione fetchContentLists con il parametro da filtrare (urlMovie)
       let resultMovie = this.state.fetchContentLists(urlMovie)
@@ -31,7 +31,7 @@ export default {
 
 <template>
   <div class="container input-group mb-3">
-    <input @keyup.enter="searchFilter()" type="search" class="form-control" placeholder="Research" aria-label="Research"
+    <input @keyup.enter="searchFilter()" type="search" class="form-control" placeholder="Cerca il film o la serie preferita" aria-label="Cerca il film o la serie preferita"
       aria-describedby="button-addon2" v-model="state.research">
     <button class="btn btn-outline-secondary" @click="searchFilter()" type="button" id="button-addon2">Cerca</button>
   </div>
@@ -65,6 +65,7 @@ export default {
       <div v-else-if="movie.original_language.toUpperCase() === 'JA'">LINGUA: {{ movie.original_language.toUpperCase() }}<img 
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFHElEQVR4nO3Y23MTVRwH8IyIDzyCPoH+D6IgF5U7LXcqUCo4DoI4Poj4woh9UIZBwEFmZLyAMvqiMlKm4BSoBVrSkkuTdHNtks19c9kku81ukt2q0/DydU6YEUVkz2ZL+tLfzHnLw+d3snv2d74m03RN13QZLgAzOEFZzAlqZ0pQulOiEkoJajlVrN5NFip344VyOcaXg3Fe7o7mpM5YTloE4AnTVFec//NZTlBOpgSF50QV/1wpQUGyWEWiUEE8X66vGC8jmpMQyZYQTos5Ni2c8OekeU2HxwrqM5yofMuJSu1BOA2ezYyBTYukCYQ4oRZMFs9GIvmnm4LnhOqulKjKD4M3gEcwVcRosgB/Ii/5EnzHY4MzwExOVM7/H9wIPpDIIxDn4Y/z8MWy5xiGmTmp+Hw+PyslqL2PH5+DN5qFm81cZ5j8rEnb+WbiPZEMPGwaDMvdCgaDTxluoDmPTe5feDdpIMzBFUyeNYRPC9XdU4UfCaVIA3CNxnc2hOd5ZQ4nKqWpxSfg9MdlhonoP2LvnfP68LG0gMyvNzF29DSq+z+A2r6nvir7D0I8cgrJ7l6MRjL0+EAcjkAcdl/0a134mPTHPL0fqczVflT3HsDvW3Y9cpHfJC73UeOH/THYvNGahQk+R7/7gnKSGp8tQThzXhP+4MqdPgtPmNPE231R2LwRWN3sCSo8GbI4QcnR7rxu/ObXMb6pA+MbdyJ76hsqvM3DwsKE+K4uzKDZ/cV6HptG4OMbdkJd3w513Q6wF3s08VZ3GBZ3GEMjwYUUDaidtC+ssu/9huFq63YoLdsgdbyNEV9UE3+HCWGICR7WbCAlKpdpjkpy2hiBK2tfu7fWtCH8Y7c2fiSIQWfgEk0DQZpzfuzo543BW+7Dq6u3orpqCzKHjmjih1yjMDsDAYoGVJnmI1Xdf9AwvLpyMyorNkNo36uJH3QGcHvYX9JuQKjWaL6w4+1vGYZXlm9CZdlGSGvaNPFmhx+3Hb4JzQaSxUqNZjwY375HA75NE15+dQPKr6yHtLqNAu/HwLBXu4F4oSzTzDaVve/9B6626oOXX14HeWkrim1vUuB96Ld5tR+henpAMZgVP/7MMFxe0gJ58VokD3Zq4gfsXvRbPdovcYyXL9NMlcmua4bh0qI1kBauhv+7C9p4mwc3LYz2MUpyG5qReDSShbz7HUNwacEqFFrbYXEENPG3rG7ctLg/1P4HctIi2nk+dulaw/DSiyvry/v9L3R4qxu9NtcCqmGOTYtZ2stI+vgZ/fAXVqA0fznYzk+p8X13mMwntGkeScyob1IhDtyxL3TBx+YvR+TwMQw5A1T4GxYGfXdGjptoi8R99cRMxzUw9PMViFvfuA9/6SHw55eBX7sdnvMXqHf+Rh3vmrjab59r0lMk7tN7hyVTZeiHi+AOfIT8pl0Ql7ZCXNICfn0Hku8egu/cT7CQXdeFH8Fvg84vdeHrDWSzswMJvqTrAk4zEuvFD7mkHjPTWG5KssqpxPcNucju72gI/3cTsey5qcL3mp1fmYxWFzDDzaavNB0/6LxmNpufNE1GkaDVzaavNw/vuNrTw0xOuHu/CWYmySqb8diYJ2vnH1Ykq3QE4qVJxw86xwy/sLTlDIfnkLjP7o1MGMe7Jsg532e3zzY1u+ze6FySmFnd4WwD+CwZD3R/YR9HkQGQhE4ktyHRB0kPzA6ffHvYVxuwe2sDNo98y+rxk3mejMRkqqQezKZruqbL9Kj6C24rsxfePvPMAAAAAElFTkSuQmCC">
       </div>
+
       <div v-else-if="movie.original_language.toUpperCase() === 'DE'">LINGUA: {{ movie.original_language.toUpperCase() }}<img 
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEFklEQVR4nO2ZyWsbVxzHfyRuTj2k7Sk0PXVvkrZuvMRLLC9ZJEuyLGkkWdbMaGYeKOCUJj2FQhr50uDkUru30j8gIdBSQintydCcCgUtljcocWulkSXZlhfsmiTSt8yYFCwKkqxtCv7C56aBz/e9p3kz84gOcpCDlJ1gMHiIMdYiy/JVSZLuiaIYFkUxLoritiAI2zzPx30+X9jn893zer1X3G53s3oN1TuSJL2mKEpQkqQ/ZFmGJEnw+/0QRVFDEATwPK/h8/kwPDwMr9erMTQ0tODxeG7Y7fbjNRf3+/1HGWNjsizvqOL7kIfH44Hb7YbL5XrCcdyEzWY7WhN5RVGcjLGUoigoV969WwAcx8HpdKacTqejauLBYLBBHXXGWK7S8txuATgcDtjt9q8DgcALFZV3uVxHGGM/MMZQZXmoDA4O3q9YCZfLdVhRlLs1lIfNZlP5zmAwNJRdgDH2VR3kMTAwAIvFMl6WvCzLphqsefyXvNVqVQvkLBaLdV/ygiC8oihKuo7yUDGbzSmz2fxSyQUYY7d1II/+/n6YTKaxkuQDgcAxWZa3dCIPo9G4bTQai9+x06O3H2xah7Bp8WDTrOLGRr8bGyYXNkwcNowc1i86sX7Bsct5O9bODWKtT8WGtd4BZHpUrMh0W5ExWLDaZd7lbD9WO01Y6TBipd2IlbaLWDlzAcut57Hceg7LLX1IN/ch3dSL9OkepD/qRqrRgFlh5Jei5DE52ZDhLz3Tk3zqwy7EOy1PJw3BwrfVxPg3st7kUx90Ifn+WYQ+vsYXLJAavfWzHuWTpzoR40d+LFhg5er1R3qUT57swLzVt1iwwKo0sqNH+eSJdjzssv5dsECG8+f0KL90og3x5t5swQLrliFdyi+914bEqQ4UUcCjS/mld8/gr5PthQtkHEJOj/KJd1qx2NhdeAkt85d29CifeLsFv7eZCv+Jk5evxfUon3irGTNGrvBt9NFnX/ykR/nEm00IcVLhjezPm+N+Pco/fqMJv0qXh4t6mFu2+5/pTX6hsefpZLHvyPFPbzzQk/zj108jNMAX9zitzcIMHcvO0VZunvAvc3nM7oLnzOQxnUcsj6k8onlE9rCNEL1KpSQ7T7d0Ig+E6GZJ8tosxOjl7ByldCCfRJRKf6nXSsyRKTtLuTrK5xCm/X1WeZ7sHE3URT6s8WVZ8tosgA5nZ+lOzeVD9C0mqfxPi1qJGB3BDN2v4ch/j9+osl+o1ZnANI1hmnJVXfMhmqi4/J4is+TENKWqMPIphKl6Bxx7SsToRUzTKGK0UwH5J9qoh6g2R0x7ikToOGL0OaZoYR/yDxGh6yXvsFUpAjqEKDVhiq4gSncRpRCitIgobWlEaBERCiFCdxCmT7Tfgup/zHqQg9D/P/8A9+JSzY86f54AAAAASUVORK5CYII=">
       </div>
