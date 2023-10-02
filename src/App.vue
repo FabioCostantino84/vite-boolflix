@@ -5,8 +5,8 @@ import { state } from './state.js'
 export default {
   name: 'App',
   data() {
-    showInfo: false
     return {
+      showInfo: false,
       state,
     }
   },
@@ -57,13 +57,13 @@ export default {
     <div class="row">
       <div v-for="movie in this.state.movies" class="col-2">
 
-        <!-- <div class="card" @mouseover="showInfo = true" @mouseleave="showInfo = false"> -->
-        <div class="card">
+        <div class="card" @mouseover="showInfo = true" @mouseleave="showInfo = false">
+        <!-- <div class="card"> -->
           <img
             :src="movie.poster_path ? 'https://image.tmdb.org/t/p/w342/' + `${movie.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png'"
             class="card-img-top" alt="Immagine di Copertina">
-          <!-- <div class="card-body" v-if="showInfo"> -->
-          <div class="card-body">
+          <div class="card-body" v-if="showInfo">
+          <!-- <div class="card-body"> -->
             <h5 class="card-title">TITOLO: {{ movie.title }}</h5>
             <p class="card-text">TITOLO ORIGINALE: {{ movie.original_title }}</p>
             <p class="card-text">VOTO: {{ Math.floor(movie.vote_average) }}</p>
