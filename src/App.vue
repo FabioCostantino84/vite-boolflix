@@ -60,20 +60,23 @@ export default {
 
       <div v-for="movie in this.state.movies" class="col-2">
 
-        <div class="card" >
+        <div class="card">
           <!-- <div class="card"> -->
-          <!-- <img
+          <img
             :src="movie.poster_path ? 'https://image.tmdb.org/t/p/w342/' + `${movie.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png'"
-            class="card-img-top" @mouseover="showInfo = true" @mouseleave="showInfo = false" alt="Immagine di Copertina"> -->
-         
-            <div class="card-body" >
+            class="card-img-top" @mouseover="showInfo = true" @mouseleave="showInfo = false" alt="Immagine di Copertina">
+
+          <div class="card-body">
             <!-- <div class="card-body"> -->
             <h5 class="card-title">TITOLO: {{ movie.title }}</h5>
             <p class="card-text">TITOLO ORIGINALE: {{ movie.original_title }}</p>
             <div class="card-text">VOTO:
-              <span v-for="vote in (5 - Math.floor(movie.vote_average / 2)) " ><i class="fa-solid fa-star"></i></span>
-              <span v-for="vote in (5 - (movie.vote_average ) / 2) "><i class="fa-regular fa-star"></i></span>
-              </div>
+              <i v-for="vote in Math.floor(5 - Math.floor(5 - movie.vote_average / 2)) " class="fa-solid fa-star"></i>
+              <i v-for="vote in Math.floor(5 - Math.floor(movie.vote_average) / 2) " class="fa-regular fa-star"></i>
+
+              <!-- <span v-for="vote in (5 - Math.floor(5 - movie.vote_average / 2)) " ><i class="fa-solid fa-star"></i></span>
+              <span v-for="vote in (5 - Math.floor(movie.vote_average )/ 2) "><i class="fa-regular fa-star"></i></span> -->
+            </div>
 
             <!-- va modificata la stampa dinamica delle bandiere -->
             <div v-if="movie.original_language.toUpperCase() === 'IT'">LINGUA: {{ movie.original_language.toUpperCase()
@@ -131,11 +134,12 @@ export default {
           <img
             :src="tv.poster_path ? 'https://image.tmdb.org/t/p/w342/' + `${tv.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png'"
             class="card-img-top" alt="Immagine di Copertina">
-          <div class="card-body" v-if="showInfo">
+          <div class="card-body"> <!-- v-if="showInfo" -->
             <!-- <div class="card-body"> -->
             <h5 class="card-title">TITOLO: {{ tv.title }}</h5>
             <p class="card-text">TITOLO ORIGINALE: {{ tv.original_name }}</p>
-            <p class="card-text">VOTO: {{ Math.floor(tv.vote_average) }}</p>
+            <i v-for="vote in Math.floor(5 - Math.floor(5 - tv.vote_average / 2)) " class="fa-solid fa-star"></i>
+            <i v-for="vote in Math.floor(5 - Math.floor(tv.vote_average) / 2) " class="fa-regular fa-star"></i>
 
 
             <div v-if="tv.original_language.toUpperCase() === 'IT'">LINGUA: {{ tv.original_language.toUpperCase() }}<img
@@ -183,8 +187,7 @@ export default {
 
 
 <style lang="scss">
-
-.card-text > span > i {
-  color: #f7d708;
+i {
+  color: goldenrod
 }
 </style>
