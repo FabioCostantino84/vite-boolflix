@@ -72,7 +72,7 @@ export default {
             <p class="card-text">TITOLO ORIGINALE: {{ movie.original_title }}</p>
             <div class="card-text">VOTO:
               <i v-for="vote in Math.floor(5 - Math.floor(5 - movie.vote_average / 2)) " class="fa-solid fa-star"></i>
-              <i v-for="vote in Math.floor(5 - Math.floor(movie.vote_average) / 2) " class="fa-regular fa-star"></i>
+              <i v-for="vote in Math.floor(5 - (movie.vote_average / 2)) " class="fa-regular fa-star"></i>
 
               <!-- <span v-for="vote in (5 - Math.floor(5 - movie.vote_average / 2)) " ><i class="fa-solid fa-star"></i></span>
               <span v-for="vote in (5 - Math.floor(movie.vote_average )/ 2) "><i class="fa-regular fa-star"></i></span> -->
@@ -139,7 +139,7 @@ export default {
             <h5 class="card-title">TITOLO: {{ tv.title }}</h5>
             <p class="card-text">TITOLO ORIGINALE: {{ tv.original_name }}</p>
             <i v-for="vote in Math.floor(5 - Math.floor(5 - tv.vote_average / 2)) " class="fa-solid fa-star"></i>
-            <i v-for="vote in Math.floor(5 - Math.floor(tv.vote_average) / 2) " class="fa-regular fa-star"></i>
+            <i v-for="vote in Math.floor(5 - (tv.vote_average / 2)) " class="fa-regular fa-star"></i>
 
 
             <div v-if="tv.original_language.toUpperCase() === 'IT'">LINGUA: {{ tv.original_language.toUpperCase() }}<img
