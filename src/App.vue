@@ -1,8 +1,11 @@
 <script>
-
-import { state } from './state.js'
+import { state } from './state.js';
+import HeaderApp from './components/HeaderApp.vue';
 
 export default {
+  components: {
+    HeaderApp,
+  },
   name: 'App',
   data() {
     return {
@@ -41,11 +44,12 @@ export default {
 
 
 <template>
-  <div class="container input-group mb-3">
+  <HeaderApp></HeaderApp>
+  <!-- <div class="container input-group mb-3">
     <input @keyup.enter="getData" type="search" class="form-control" placeholder="Cerca il film o la serie preferita"
       aria-label="Cerca il film o la serie preferita" aria-describedby="button-addon2" v-model="state.query">
     <button class="btn btn-outline-secondary" @click="getData" type="button" id="button-addon2">Cerca</button>
-  </div>
+  </div> -->
 
   <div class="container">
     <h2>Movies</h2>
